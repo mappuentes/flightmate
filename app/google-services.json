@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "782995393407",
+    "project_id": "flightmate-18c75",
+    "storage_bucket": "flightmate-18c75.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:782995393407:android:6b2e0ea6cc0bd76ca8e84a",
+        "android_client_info": {
+          "package_name": "com.example.flightmate"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "782995393407-amsavranljh03ukfprvuvdokqot0a5n9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCr_GsQEv_wN50-aos6116Lw8pLMBh4kJU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "782995393407-amsavranljh03ukfprvuvdokqot0a5n9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

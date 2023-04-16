@@ -12,7 +12,10 @@
         android:theme="@style/Theme.Flightmate"
         tools:targetApi="31">
         <activity
-            android:name=".BuscarVuelos"
+            android:name=".BuscarVuelosActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BuscarVuelosActivity"
             android:exported="false" />
         <activity
             android:name=".HomeActivity"

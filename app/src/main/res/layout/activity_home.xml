@@ -26,7 +26,6 @@
         android:layout_height="46dp"
         android:layout_marginTop="80dp"
         android:background="@drawable/boton_redondeado"
-        android:backgroundTint="#404040"
         android:drawableRight="@drawable/lupa"
         android:text="Busca tu vuelo"
         app:layout_constraintEnd_toEndOf="parent"

@@ -14,7 +14,14 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         Button backButton = (Button) findViewById(R.id.back_button);
-        Button buscarVuelos = (Button) findViewById(R.id.buscar_button);
+        Button BuscarVueloButton = (Button) findViewById(R.id.buscar_button);
+
+        BuscarVueloButton.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        startActivity(new Intent(HomeActivity.this, BuscarVuelosActivity.class));
+                    }});
 
         backButton.setOnClickListener(
         new View.OnClickListener() {
@@ -22,12 +29,8 @@ public class HomeActivity extends AppCompatActivity {
             public void onClick(View v) {
                 startActivity(new Intent(HomeActivity.this, AuthActivity.class));
             }});
-        buscarVuelos.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        startActivity(new Intent(HomeActivity.this, BuscarVuelos.class));
-                    }});
+
+
     }
 
 }

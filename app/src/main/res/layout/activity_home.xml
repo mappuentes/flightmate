@@ -13,7 +13,7 @@
         android:layout_width="69dp"
         android:layout_height="33dp"
         android:layout_marginTop="16dp"
-        android:backgroundTint="#FFFFFF"
+        android:backgroundTint="#FFFBFB"
         android:drawableRight="@drawable/atras"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.046"
@@ -24,11 +24,37 @@
         android:id="@+id/buscar_button"
         android:layout_width="319dp"
         android:layout_height="46dp"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="80dp"
         android:background="@drawable/boton_redondeado"
         android:backgroundTint="#404040"
         android:drawableRight="@drawable/lupa"
         android:text="Busca tu vuelo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/llegadas_button"
+        android:layout_width="319dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="148dp"
+        android:background="@drawable/boton_redondeado"
+        android:backgroundTint="#404040"
+        android:drawableRight="@drawable/lupa"
+        android:text="LLEGADAS"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/salidas_button"
+        android:layout_width="319dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="216dp"
+        android:background="@drawable/boton_redondeado"
+        android:backgroundTint="#404040"
+        android:drawableRight="@drawable/lupa"
+        android:text="SALIDAS"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

@@ -7,40 +7,28 @@
     android:background="#FFFFFF"
     tools:context=".HomeActivity">
 
-
-    <Button
-        android:id="@+id/back_button"
-        android:layout_width="69dp"
-        android:layout_height="33dp"
-        android:layout_marginTop="16dp"
-        android:backgroundTint="#FFFBFB"
-        android:drawableRight="@drawable/atras"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.046"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <Button
         android:id="@+id/buscar_button"
         android:layout_width="319dp"
-        android:layout_height="46dp"
+        android:layout_height="48dp"
         android:layout_marginTop="80dp"
-        android:background="@drawable/boton_redondeado"
-        android:drawableRight="@drawable/lupa"
-        android:text="Busca tu vuelo"
+        android:background="@drawable/boton_dos"
+        android:drawableEnd="@drawable/lupa"
+        android:text="@string/boton_buscar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:strokeColor="@color/black" />
 
     <Button
         android:id="@+id/llegadas_button"
         android:layout_width="319dp"
-        android:layout_height="46dp"
+        android:layout_height="48dp"
         android:layout_marginTop="148dp"
         android:background="@drawable/boton_redondeado"
         android:backgroundTint="#404040"
-        android:drawableRight="@drawable/lupa"
-        android:text="LLEGADAS"
+        android:drawableEnd="@drawable/arrival"
+        android:text="@string/boton_llegada"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -48,12 +36,12 @@
     <Button
         android:id="@+id/salidas_button"
         android:layout_width="319dp"
-        android:layout_height="46dp"
+        android:layout_height="48dp"
         android:layout_marginTop="216dp"
         android:background="@drawable/boton_redondeado"
         android:backgroundTint="#404040"
-        android:drawableRight="@drawable/lupa"
-        android:text="SALIDAS"
+        android:drawableEnd="@drawable/departures"
+        android:text="@string/boton_salidas"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

@@ -36,7 +36,7 @@ public class LlegadasActivity extends AppCompatActivity {
         setContentView(R.layout.activity_llegadas);
         TableLayout tableLayout = findViewById(R.id.tablaLlegadas);
 
-        AutoCompleteTextView autoCompleteTextView = findViewById(R.id.autoCompleteTextView);
+        AutoCompleteTextView autoCompleteTextView = findViewById(R.id.texto_llegadas);
         String[] options = {"Madrid-Barajas", "Barcelona-El Prat", "Opción 3", "Opción 4", "Opción 5"};
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.list_item, options);
         autoCompleteTextView.setAdapter(adapter);

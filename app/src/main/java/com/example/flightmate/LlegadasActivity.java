@@ -34,7 +34,7 @@ public class LlegadasActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_llegadas);
-        TableLayout tableLayout = findViewById(R.id.tableDepartures);
+        TableLayout tableLayout = findViewById(R.id.tablaLlegadas);
 
         AutoCompleteTextView autoCompleteTextView = findViewById(R.id.autoCompleteTextView);
         String[] options = {"Madrid-Barajas", "Barcelona-El Prat", "Opción 3", "Opción 4", "Opción 5"};

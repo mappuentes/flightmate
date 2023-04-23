@@ -20,6 +20,8 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         Button BuscarVueloButton = (Button) findViewById(R.id.buscar_button);
         Button LlegadasButton = (Button) findViewById(R.id.llegadas_button);
+        Button SalidasButton = (Button) findViewById(R.id.salidas_button);
+
 
 
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
@@ -41,7 +43,12 @@ public class HomeActivity extends AppCompatActivity {
                     public void onClick(View v) {
                         startActivity(new Intent(HomeActivity.this, LlegadasActivity.class));
                     }});
-
+        SalidasButton.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        startActivity(new Intent(HomeActivity.this, SalidasActivity.class));
+                    }});
 
     }
 

@@ -7,6 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TableLayout;
+import android.widget.TableRow;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -27,11 +30,22 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.TimeZone;
+
 public class BuscarVuelosActivity extends AppCompatActivity {
 
     Button btn_airportID;
     EditText et_dataInput;
-    ListView lv_weather;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,8 +55,6 @@ public class BuscarVuelosActivity extends AppCompatActivity {
         btn_airportID = findViewById(R.id.btn_getairportID);
         et_dataInput = findViewById(R.id.et_dataInput);
 
-
-        //click listener
 
         btn_airportID.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,6 +71,7 @@ public class BuscarVuelosActivity extends AppCompatActivity {
 //                            JSONArray respuesta = response.getJSONArray("response");
 //                            JSONObject respuestas = respuesta.getJSONObject(1);
 //                            String day = respuestas.getString("flight_number");
+
                         for(int i =0; i<json_request_response.getResponse().size();i++){
                            String nombre = json_request_response.getResponse().get(i).getStatus();
                             Toast.makeText(BuscarVuelosActivity.this, "status:"+ nombre, Toast.LENGTH_SHORT).show();

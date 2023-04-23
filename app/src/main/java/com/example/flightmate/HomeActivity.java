@@ -19,6 +19,8 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         Button BuscarVueloButton = (Button) findViewById(R.id.buscar_button);
+        Button LlegadasButton = (Button) findViewById(R.id.llegadas_button);
+
 
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setCustomView(R.layout.txt_layout);
@@ -31,6 +33,13 @@ public class HomeActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         startActivity(new Intent(HomeActivity.this, BuscarVuelosActivity.class));
+                    }});
+
+        LlegadasButton.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        startActivity(new Intent(HomeActivity.this, LlegadasActivity.class));
                     }});
 
 

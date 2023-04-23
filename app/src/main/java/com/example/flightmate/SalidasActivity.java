@@ -56,7 +56,7 @@ public class SalidasActivity extends AppCompatActivity {
                 // Toast.makeText(LlegadasActivity.this, "Fecha actual:"+ madridFecha, Toast.LENGTH_SHORT).show();
                 RequestQueue queue = Volley.newRequestQueue(SalidasActivity.this);
 
-                String url = "https://airlabs.co/api/v9/schedules?arr_iata="+codAeropuerto+"&api_key=e148d34f-4a9f-4ff5-bd1b-0b798d7bc488";
+                String url = "https://airlabs.co/api/v9/schedules?dep_iata="+codAeropuerto+"&api_key=e148d34f-4a9f-4ff5-bd1b-0b798d7bc488";
                 JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
@@ -80,8 +80,8 @@ public class SalidasActivity extends AppCompatActivity {
                                     TextView text_flight_iata = new TextView(SalidasActivity.this);
                                     text_flight_iata.setText(json_request_response.getResponse().get(i).getFlightIata());
 
-                                    TextView text_DepIata = new TextView(SalidasActivity.this);
-                                    text_DepIata.setText(json_request_response.getResponse().get(i).getDepIata());
+                                    TextView text_ArrIata = new TextView(SalidasActivity.this);
+                                    text_ArrIata.setText(json_request_response.getResponse().get(i).getArrIata());
 
                                     TextView text_AirlineIata = new TextView(SalidasActivity.this);
                                     text_AirlineIata.setText(json_request_response.getResponse().get(i).getAirlineIata());
@@ -94,7 +94,7 @@ public class SalidasActivity extends AppCompatActivity {
 
                                     tableRow.addView(text_dep_time_hour_min);
                                     tableRow.addView(text_flight_iata);
-                                    tableRow.addView(text_DepIata);
+                                    tableRow.addView(text_ArrIata);
                                     tableRow.addView(text_AirlineIata);
                                     tableRow.addView(text_AircraftIcao);
                                     tableRow.addView(text_Status);

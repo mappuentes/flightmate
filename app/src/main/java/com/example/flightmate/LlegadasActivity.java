@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
@@ -44,11 +45,15 @@ public class LlegadasActivity extends AppCompatActivity {
         autoCompleteTextView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                tableLayout.removeAllViews();
+
                 String selectedItem = (String) parent.getItemAtPosition(position);
                 setCodigoAeropuerto(selectedItem);
                 Toast.makeText(getApplicationContext(), "Has seleccionado: " + codAeropuerto, Toast.LENGTH_SHORT).show();
                 TimeZone.setDefault(TimeZone.getTimeZone("Europe/Madrid"));
                 Date madridFecha = new Date();
+
+
 
                 // Debuggear la fecha actual de Madrid.
                 // Toast.makeText(LlegadasActivity.this, "Fecha actual:"+ madridFecha, Toast.LENGTH_SHORT).show();
@@ -70,26 +75,37 @@ public class LlegadasActivity extends AppCompatActivity {
                                 if (arr_time_date.compareTo(madridFecha) > 0 ){
 
                                     TableRow tableRow = new TableRow(LlegadasActivity.this);
+                                    TableRow.LayoutParams layoutParams = new TableRow.LayoutParams(
+                                            382, // aquí estableces el ancho deseado en píxeles o en otra unidad de medida
+                                            TableRow.LayoutParams.MATCH_PARENT // aquí estableces la altura deseada
+                                    );
+                                    tableRow.setLayoutParams(layoutParams);
 
                                     SimpleDateFormat formatHourMin = new SimpleDateFormat("HH:mm");
                                     String arr_time_hour_min = formatHourMin.format(arr_time_date);
                                     TextView text_arr_time_hour_min = new TextView(LlegadasActivity.this);
                                     text_arr_time_hour_min.setText(arr_time_hour_min);
+                                    text_arr_time_hour_min.setWidth(125);
 
                                     TextView text_flight_iata = new TextView(LlegadasActivity.this);
                                     text_flight_iata.setText(json_request_response.getResponse().get(i).getFlightIata());
+                                    text_flight_iata.setWidth(160);
 
                                     TextView text_DepIata = new TextView(LlegadasActivity.this);
                                     text_DepIata.setText(json_request_response.getResponse().get(i).getDepIata());
+                                    text_DepIata.setWidth(140);
 
                                     TextView text_AirlineIata = new TextView(LlegadasActivity.this);
                                     text_AirlineIata.setText(json_request_response.getResponse().get(i).getAirlineIata());
+                                    text_AirlineIata.setWidth(170);
 
                                     TextView text_AircraftIcao = new TextView(LlegadasActivity.this);
                                     text_AircraftIcao.setText(json_request_response.getResponse().get(i).getAircraftIcao());
+                                    text_AircraftIcao.setWidth(170);
 
                                     TextView text_Status = new TextView(LlegadasActivity.this);
                                     text_Status.setText(json_request_response.getResponse().get(i).getStatus());
+                                    text_Status.setWidth(180);
 
                                     tableRow.addView(text_arr_time_hour_min);
                                     tableRow.addView(text_flight_iata);

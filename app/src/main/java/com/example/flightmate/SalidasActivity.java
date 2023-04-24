@@ -45,6 +45,8 @@ public class SalidasActivity extends AppCompatActivity {
         autoCompleteTextView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                tableLayout.removeAllViews();
+
                 String selectedItem = (String) parent.getItemAtPosition(position);
                 setCodigoAeropuerto(selectedItem);
                 Toast.makeText(getApplicationContext(), "Has seleccionado: " + codAeropuerto, Toast.LENGTH_SHORT).show();
@@ -76,21 +78,27 @@ public class SalidasActivity extends AppCompatActivity {
                                     String dep_time_hour_min = formatHourMin.format(dep_time_date);
                                     TextView text_dep_time_hour_min = new TextView(SalidasActivity.this);
                                     text_dep_time_hour_min.setText(dep_time_hour_min);
+                                    text_dep_time_hour_min.setWidth(110);
 
                                     TextView text_flight_iata = new TextView(SalidasActivity.this);
                                     text_flight_iata.setText(json_request_response.getResponse().get(i).getFlightIata());
+                                    text_flight_iata.setWidth(160);
 
                                     TextView text_ArrIata = new TextView(SalidasActivity.this);
                                     text_ArrIata.setText(json_request_response.getResponse().get(i).getArrIata());
+                                    text_ArrIata.setWidth(140);
 
                                     TextView text_AirlineIata = new TextView(SalidasActivity.this);
                                     text_AirlineIata.setText(json_request_response.getResponse().get(i).getAirlineIata());
+                                    text_AirlineIata.setWidth(170);
 
                                     TextView text_AircraftIcao = new TextView(SalidasActivity.this);
                                     text_AircraftIcao.setText(json_request_response.getResponse().get(i).getAircraftIcao());
+                                    text_AircraftIcao.setWidth(170);
 
                                     TextView text_Status = new TextView(SalidasActivity.this);
                                     text_Status.setText(json_request_response.getResponse().get(i).getStatus());
+                                    text_Status.setWidth(180);
 
                                     tableRow.addView(text_dep_time_hour_min);
                                     tableRow.addView(text_flight_iata);

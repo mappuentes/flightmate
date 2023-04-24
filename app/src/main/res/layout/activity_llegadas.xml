@@ -6,6 +6,60 @@
     android:layout_height="match_parent"
     tools:context=".LlegadasActivity">
 
+    <TableLayout
+        android:id="@+id/cabecera"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_marginBottom="331dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+        android:layout_marginBottom="500dp"
+        android:padding="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp">
+
+        <TableRow
+            android:layout_width="382dp"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="40dp"
+                android:text="TIME"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="55dp"
+                android:text="FLIGHT"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="52dp"
+                android:text="FROM"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="59dp"
+                android:layout_height="match_parent"
+                android:text="AIRLINE"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="73dp"
+                android:text="AIRCRAFT"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="72dp"
+                android:text="STATUS"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+        </TableRow>
+    </TableLayout>
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="250dp"
@@ -29,47 +83,7 @@
             tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="0dp">
 
-            <TableRow
-                android:layout_width="382dp"
-                android:layout_height="match_parent">
 
-                <TextView
-                    android:layout_width="40dp"
-                    android:text="TIME"
-                    android:textSize="13sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="55dp"
-                    android:text="FLIGHT"
-                    android:textSize="13sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="52dp"
-                    android:text="FROM"
-                    android:textSize="13sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="59dp"
-                    android:layout_height="match_parent"
-                    android:text="AIRLINE"
-                    android:textSize="13sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="73dp"
-                    android:text="AIRCRAFT"
-                    android:textSize="13sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="72dp"
-                    android:text="STATUS"
-                    android:textSize="13sp"
-                    android:textStyle="bold" />
-            </TableRow>
         </TableLayout>
 
     </ScrollView>

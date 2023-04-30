@@ -46,6 +46,10 @@ public class BuscarVuelosActivity extends AppCompatActivity {
     Button btn_airportID;
     EditText et_dataInput;
 
+    View viewVuelo;
+    View divider;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,32 +58,82 @@ public class BuscarVuelosActivity extends AppCompatActivity {
 
         btn_airportID = findViewById(R.id.btn_getairportID);
         et_dataInput = findViewById(R.id.et_dataInput);
+        viewVuelo = findViewById(R.id.viewVuelo);
+        divider= findViewById(R.id.divider3);
+        TextView airlineTextView = findViewById(R.id.textViewNumero_vuelo);
+        TextView statusTextView = findViewById(R.id.textViewStatus);
+        TextView citySalidaTextView = findViewById(R.id.textViewCitySalida);
+        TextView TerminaSalidalTextView = findViewById(R.id.textViewTerminalSalida);
+        TextView HoraSalidaRealTextView = findViewById(R.id.textViewHoraSalida);
+        TextView HoraSalidaProgramadaTextView = findViewById(R.id.textViewHoraSalidaProgramada);
+        TextView PuertaSalidalTextView = findViewById(R.id.textViewPuertaSalida);
 
+
+
+//        et_dataInput.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                et_dataInput.setText("");
+//            }
+//        });
 
         btn_airportID.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String flightNumber = et_dataInput.getText().toString();
                 // Instantiate the RequestQueue.
                 RequestQueue queue = Volley.newRequestQueue(BuscarVuelosActivity.this);
-                String url ="https://airlabs.co/api/v9/schedules?arr_iata=MAD&api_key=e148d34f-4a9f-4ff5-bd1b-0b798d7bc488";
+                String url ="https://airlabs.co/api/v9/flight?flight_iata="+flightNumber+"&api_key=e148d34f-4a9f-4ff5-bd1b-0b798d7bc488";
                 JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
-//                        try {
-                            Gson gson = new Gson();
-                            JsonRequestResponse json_request_response = gson.fromJson(String.valueOf(response), JsonRequestResponse.class);
-//                            JSONArray respuesta = response.getJSONArray("response");
-//                            JSONObject respuestas = respuesta.getJSONObject(1);
-//                            String day = respuestas.getString("flight_number");
+                         try {
+                             JSONObject respuesta = response.getJSONObject("response");
+                            String numero_vuelo = respuesta.getString("flight_number");
+                            String citySalida = respuesta.getString("dep_city");
+                            String paisSalida = respuesta.getString("dep_country");
+                            String cityLlegada = respuesta.getString("arr_city");
+                            String paisLlegada= respuesta.getString("arr_country");
+                            String status = respuesta.getString("status");
+                            String TerminalSalida = respuesta.getString("dep_terminal");
+                            String HoraReal = respuesta.getString("dep_actual");
+                            String HoraProgramada = respuesta.getString("dep_time");
+                            String puertaSalida = respuesta.getString("dep_gate");
 
-                        for(int i =0; i<json_request_response.getResponse().size();i++){
-                           String nombre = json_request_response.getResponse().get(i).getStatus();
-                            Toast.makeText(BuscarVuelosActivity.this, "status:"+ nombre, Toast.LENGTH_SHORT).show();
+                             SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+                             SimpleDateFormat formatHourMin = new SimpleDateFormat("HH:mm");
 
-                        }
-//                        } catch (JSONException e) {
-//                            throw new RuntimeException(e);
-//                        }
+                             Date dep_time_dateR = format.parse(HoraReal);
+                             String dep_time_hour_minR = formatHourMin.format(dep_time_dateR);
+
+                             Date dep_time_dateP = format.parse(HoraProgramada);
+                             String dep_time_hour_minP = formatHourMin.format(dep_time_dateP);
+
+                             statusTextView.setText(status);
+                             airlineTextView.setText(numero_vuelo);
+                             citySalidaTextView.setText(citySalida+"("+paisSalida+")");
+                             TerminaSalidalTextView.setText("Terminal:            "+TerminalSalida);
+                             HoraSalidaRealTextView.setText("Salida Confirmada:   "+dep_time_hour_minR);
+                             HoraSalidaProgramadaTextView.setText("Salida Programada:   "+dep_time_hour_minP);
+                             PuertaSalidalTextView.setText("Puerta:               "+puertaSalida);
+
+                             HoraSalidaProgramadaTextView.setVisibility(View.VISIBLE);
+                             HoraSalidaRealTextView.setVisibility(View.VISIBLE);
+                             PuertaSalidalTextView.setVisibility(View.VISIBLE);
+                             TerminaSalidalTextView.setVisibility(View.VISIBLE);
+                             citySalidaTextView.setVisibility(View.VISIBLE);
+                             airlineTextView.setVisibility(View.VISIBLE);
+                             statusTextView.setVisibility(View.VISIBLE);
+                             divider.setVisibility(View.VISIBLE);
+                             viewVuelo.setVisibility(View.VISIBLE);
+
+
+
+                        } catch (JSONException e) {
+                            throw new RuntimeException(e);
+                        } catch (ParseException e) {
+                             throw new RuntimeException(e);
+                         }
 
                     }
                 }, new Response.ErrorListener() {

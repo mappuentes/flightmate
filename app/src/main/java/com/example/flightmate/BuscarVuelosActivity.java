@@ -103,11 +103,17 @@ public class BuscarVuelosActivity extends AppCompatActivity {
                              SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
                              SimpleDateFormat formatHourMin = new SimpleDateFormat("HH:mm");
 
-                             Date dep_time_dateR = format.parse(HoraReal);
-                             String dep_time_hour_minR = formatHourMin.format(dep_time_dateR);
+                             String dep_time_hour_minR = "";
+                             String dep_time_hour_minP = "";
+                             if (HoraReal != "null") {
+                                 Date dep_time_dateR = format.parse(HoraReal);
+                                 dep_time_hour_minR = formatHourMin.format(dep_time_dateR);
+                             }
+                             if (HoraProgramada != "null") {
+                                 Date dep_time_dateP = format.parse(HoraProgramada);
+                                 dep_time_hour_minP = formatHourMin.format(dep_time_dateP);
+                             }
 
-                             Date dep_time_dateP = format.parse(HoraProgramada);
-                             String dep_time_hour_minP = formatHourMin.format(dep_time_dateP);
 
                              statusTextView.setText(status);
                              airlineTextView.setText(numero_vuelo);

@@ -37,11 +37,11 @@
         android:id="@+id/viewVuelo"
         android:layout_width="370dp"
         android:layout_height="173dp"
-        android:background="@color/teal_200"
+        android:background="@color/azulito"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintHorizontal_bias="0.463"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_dataInput"
         app:layout_constraintVertical_bias="0.339" />
@@ -55,38 +55,6 @@
         app:layout_constraintEnd_toEndOf="@+id/viewVuelo"
         app:layout_constraintStart_toStartOf="@+id/viewVuelo"
         app:layout_constraintTop_toTopOf="@+id/viewVuelo" />
-
-    <TextView
-        android:id="@+id/textViewNumero_vuelo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="@+id/viewVuelo"
-        app:layout_constraintEnd_toEndOf="@+id/viewVuelo"
-        app:layout_constraintHorizontal_bias="0.654"
-        app:layout_constraintStart_toStartOf="@+id/viewVuelo"
-        app:layout_constraintTop_toTopOf="@+id/viewVuelo"
-        app:layout_constraintVertical_bias="0.053" />
-
-    <TextView
-        android:id="@+id/textViewStatus"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="@+id/viewVuelo"
-        app:layout_constraintEnd_toEndOf="@+id/viewVuelo"
-        app:layout_constraintHorizontal_bias="0.821"
-        app:layout_constraintStart_toStartOf="@+id/viewVuelo"
-        app:layout_constraintTop_toTopOf="@+id/viewVuelo"
-        app:layout_constraintVertical_bias="0.525" />
 
     <TextView
         android:id="@+id/textViewCitySalida"
@@ -166,6 +134,158 @@
         app:layout_constraintStart_toStartOf="@+id/viewVuelo"
         app:layout_constraintTop_toTopOf="@+id/viewVuelo"
         app:layout_constraintVertical_bias="0.461" />
+
+    <View
+        android:id="@+id/viewcabecera"
+        android:layout_width="370dp"
+        android:layout_height="72dp"
+        android:background="@color/gris"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/viewVuelo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.463"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_dataInput"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/textViewNumero_vuelo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textColor="@color/black"
+        android:textSize="10sp"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/viewcabecera"
+        app:layout_constraintEnd_toEndOf="@+id/viewcabecera"
+        app:layout_constraintHorizontal_bias="0.864"
+        app:layout_constraintStart_toStartOf="@+id/viewcabecera"
+        app:layout_constraintTop_toTopOf="@+id/viewcabecera"
+        app:layout_constraintVertical_bias="0.827" />
+
+    <TextView
+        android:id="@+id/textViewStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/viewcabecera"
+        app:layout_constraintEnd_toEndOf="@+id/viewcabecera"
+        app:layout_constraintStart_toStartOf="@+id/viewcabecera"
+        app:layout_constraintTop_toTopOf="@+id/viewcabecera" />
+
+    <TextView
+        android:id="@+id/textViewHoraLlegadaprogramada"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textColor="@color/black"
+        android:textSize="10sp"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/viewVuelo"
+        app:layout_constraintEnd_toEndOf="@+id/viewVuelo"
+        app:layout_constraintHorizontal_bias="0.075"
+        app:layout_constraintStart_toEndOf="@+id/divider3"
+        app:layout_constraintTop_toTopOf="@+id/viewVuelo"
+        app:layout_constraintVertical_bias="0.295" />
+
+    <TextView
+        android:id="@+id/textViewCityLlegada"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/viewVuelo"
+        app:layout_constraintEnd_toEndOf="@+id/viewVuelo"
+        app:layout_constraintHorizontal_bias="0.075"
+        app:layout_constraintStart_toEndOf="@+id/divider3"
+        app:layout_constraintTop_toTopOf="@+id/viewVuelo"
+        app:layout_constraintVertical_bias="0.053" />
+
+    <TextView
+        android:id="@+id/textViewHoraLlegada"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textColor="@color/black"
+        android:textSize="10sp"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/viewVuelo"
+        app:layout_constraintEnd_toEndOf="@+id/viewVuelo"
+        app:layout_constraintHorizontal_bias="0.075"
+        app:layout_constraintStart_toEndOf="@+id/divider3"
+        app:layout_constraintTop_toTopOf="@+id/viewVuelo"
+        app:layout_constraintVertical_bias="0.465" />
+
+    <TextView
+        android:id="@+id/textViewTerminalLlegada"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textColor="@color/black"
+        android:textSize="10sp"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/viewVuelo"
+        app:layout_constraintEnd_toEndOf="@+id/viewVuelo"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textViewHoraLlegada"
+        app:layout_constraintTop_toTopOf="@+id/viewVuelo"
+        app:layout_constraintVertical_bias="0.685" />
+
+    <TextView
+        android:id="@+id/textViewPuertaLlegada"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textColor="@color/black"
+        android:textSize="10sp"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/viewVuelo"
+        app:layout_constraintEnd_toEndOf="@+id/viewVuelo"
+        app:layout_constraintHorizontal_bias="0.075"
+        app:layout_constraintStart_toEndOf="@+id/divider3"
+        app:layout_constraintTop_toTopOf="@+id/viewVuelo"
+        app:layout_constraintVertical_bias="0.842" />
+
+    <TextView
+        android:id="@+id/textViewduracion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textColor="@color/black"
+        android:textSize="10sp"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/viewcabecera"
+        app:layout_constraintEnd_toEndOf="@+id/viewcabecera"
+        app:layout_constraintHorizontal_bias="0.137"
+        app:layout_constraintStart_toStartOf="@+id/viewcabecera"
+        app:layout_constraintTop_toTopOf="@+id/viewcabecera"
+        app:layout_constraintVertical_bias="0.827" />
+
+    <ImageView
+        android:id="@+id/imageViewIconoTicket"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/viewcabecera"
+        app:layout_constraintEnd_toEndOf="@+id/viewcabecera"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/viewcabecera"
+        app:layout_constraintTop_toTopOf="@+id/viewcabecera"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/flight_ticket_svgrepo_com" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

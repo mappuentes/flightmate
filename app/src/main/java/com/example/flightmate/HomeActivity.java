@@ -21,6 +21,7 @@ public class HomeActivity extends AppCompatActivity {
         Button BuscarVueloButton = (Button) findViewById(R.id.buscar_button);
         Button LlegadasButton = (Button) findViewById(R.id.llegadas_button);
         Button SalidasButton = (Button) findViewById(R.id.salidas_button);
+        Button RegistrosButton = (Button) findViewById(R.id.registrovuelos_button);
 
 
 
@@ -48,6 +49,12 @@ public class HomeActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         startActivity(new Intent(HomeActivity.this, SalidasActivity.class));
+                    }});
+        RegistrosButton.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        startActivity(new Intent(HomeActivity.this, RegistrosActivity.class));
                     }});
 
     }

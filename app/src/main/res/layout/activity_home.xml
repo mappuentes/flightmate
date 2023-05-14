@@ -8,6 +8,17 @@
     tools:context=".HomeActivity">
 
     <Button
+        android:id="@+id/button_upload_image3"
+        android:layout_width="205dp"
+        android:layout_height="158dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginBottom="152dp"
+        android:drawableEnd="@drawable/baseline_upload_24"
+        android:text="Subir Vuelo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
         android:id="@+id/buscar_button"
         android:layout_width="319dp"
         android:layout_height="48dp"
@@ -47,13 +58,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/registrovuelos_button"
+        android:id="@+id/visualizarvuelos_button"
         android:layout_width="319dp"
         android:layout_height="48dp"
         android:layout_marginTop="292dp"
         android:background="@drawable/boton_redondeado"
         android:backgroundTint="#404040"
-        android:text="Registra tu vuelo"
+        android:text="Visualiza tus vuelos"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

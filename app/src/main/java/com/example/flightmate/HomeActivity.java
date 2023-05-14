@@ -1,18 +1,29 @@
 package com.example.flightmate;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.widget.Toolbar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ContentResolver;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.webkit.MimeTypeMap;
 import android.widget.Button;
+import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 
 public class HomeActivity extends AppCompatActivity {
+
+    private static final int PICK_IMAGE_REQUEST = 1;
+    private Uri imageUri;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +32,9 @@ public class HomeActivity extends AppCompatActivity {
         Button BuscarVueloButton = (Button) findViewById(R.id.buscar_button);
         Button LlegadasButton = (Button) findViewById(R.id.llegadas_button);
         Button SalidasButton = (Button) findViewById(R.id.salidas_button);
-        Button RegistrosButton = (Button) findViewById(R.id.registrovuelos_button);
+        Button RegistrosButton = (Button) findViewById(R.id.visualizarvuelos_button);
+        Button RegistraVuelos = (Button) findViewById(R.id.button_upload_image3);
+
 
 
 
@@ -54,7 +67,14 @@ public class HomeActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        startActivity(new Intent(HomeActivity.this, RegistrosActivity.class));
+                        startActivity(new Intent(HomeActivity.this, VisualizarVuelosActivity.class));
+                    }});
+
+        RegistraVuelos.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        chooseAndUploadImage();
                     }});
 
     }
@@ -86,5 +106,52 @@ public class HomeActivity extends AppCompatActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+
+
+    private void chooseAndUploadImage() {
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(Intent.createChooser(intent, "Selecciona una imagen"), PICK_IMAGE_REQUEST);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
+            imageUri = data.getData();
+            uploadImage();
+        }
+    }
+
+    private void uploadImage() {
+        FirebaseAuth auth = FirebaseAuth.getInstance();
+        String uid = auth.getCurrentUser().getUid();
+
+        FirebaseStorage storage = FirebaseStorage.getInstance();
+        StorageReference userRef = storage.getReference().child("users/" + uid);
+
+        if (imageUri != null) {
+            StorageReference fileReference = userRef.child(System.currentTimeMillis() + "." + getFileExtension(imageUri));
+
+            fileReference.putFile(imageUri)
+                    .addOnSuccessListener(taskSnapshot -> {
+                        Toast.makeText(this, "Imagen subida con éxito", Toast.LENGTH_SHORT).show();
+                    })
+                    .addOnFailureListener(e -> {
+                        Toast.makeText(this, "Error al subir la imagen: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                    });
+        } else {
+            Toast.makeText(this, "No se seleccionó ninguna imagen", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private String getFileExtension(Uri uri) {
+        ContentResolver contentResolver = getContentResolver();
+        MimeTypeMap mime = MimeTypeMap.getSingleton();
+        return mime.getExtensionFromMimeType(contentResolver.getType(uri));
     }
 }

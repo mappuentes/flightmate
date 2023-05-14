@@ -9,13 +9,13 @@
 
     <item
         android:title="Perfil"
-        android:id="@+id/ajustes"
+        android:id="@+id/perfil"
         android:icon="@drawable/logo_actionbar"
         app:showAsAction="never"/>
 
     <item
         android:title="Sobre nosotros"
-        android:id="@+id/perfil"
+        android:id="@+id/inforandom"
         android:icon="@drawable/logo_actionbar"
         app:showAsAction="never"/>
 </menu>

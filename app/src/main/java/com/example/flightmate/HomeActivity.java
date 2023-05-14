@@ -62,7 +62,21 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu1,menu);
-        return true;
+        menu.findItem(R.id.perfil).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                startActivity(new Intent(HomeActivity.this, PerfilActivity.class));
+                return true;
+            }
+        });
+        menu.findItem(R.id.inforandom).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                startActivity(new Intent(HomeActivity.this, AboutUsActivity.class));
+                return true;
+            }
+        });
+        return false;
     }
 
     @Override

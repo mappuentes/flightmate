@@ -32,24 +32,12 @@ public class AuthActivity extends AppCompatActivity {
         login = findViewById(R.id.buttonLogin);
         auth = FirebaseAuth.getInstance();
 
-        register.setOnClickListener(
-                new View.OnClickListener() {
+        register.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        String em = email.getText().toString();
-                        String pa = password.getText().toString();
-                        if(TextUtils.isEmpty(em)||TextUtils.isEmpty(pa))
-                        {
-                            Toast.makeText(AuthActivity.this,"Error: Password and email are required.",Toast.LENGTH_SHORT).show();
-                        }
-                        else if(pa.length() < 6)
-                        {
-                            Toast.makeText(AuthActivity.this,"Error: Password needs to be longer than 6 characters",Toast.LENGTH_SHORT).show();
-                        }
-                        else
-                        {
-                            registerUser(em,pa);
-                        }
+                            startActivity(new Intent(AuthActivity.this, RegisterActivity.class));
+                            Toast.makeText(AuthActivity.this,"Registro",Toast.LENGTH_SHORT).show();
+
                     }
                 }
         );
@@ -90,23 +78,4 @@ public class AuthActivity extends AppCompatActivity {
         });
     }
 
-    private void registerUser(String em, String pa) {
-        auth.createUserWithEmailAndPassword(em,pa).addOnCompleteListener(
-                AuthActivity.this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful())
-                        {
-                            Toast.makeText(AuthActivity.this,"Successful registration",Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(AuthActivity.this, HomeActivity.class));
-                            finish();
-                        }
-                        else
-                        {
-                            Toast.makeText(AuthActivity.this,"Sign up failed",Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                }
-        );
-    }
 }

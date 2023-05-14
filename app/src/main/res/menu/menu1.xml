@@ -14,7 +14,7 @@
         app:showAsAction="never"/>
 
     <item
-        android:title="Perfil"
+        android:title="Sobre nosotros"
         android:id="@+id/perfil"
         android:icon="@drawable/logo_actionbar"
         app:showAsAction="never"/>

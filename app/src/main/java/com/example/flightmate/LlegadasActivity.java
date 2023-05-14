@@ -1,9 +1,12 @@
 package com.example.flightmate;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -39,6 +42,10 @@ public class LlegadasActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_llegadas);
         TableLayout tableLayout = findViewById(R.id.tablaLlegadas);
+
+        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        getSupportActionBar().setCustomView(R.layout.txt_layout);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         AutoCompleteTextView autoCompleteTextView = findViewById(R.id.texto_llegadas);
         String[] options = {"Madrid-Barajas", "Barcelona-El Prat", "Valencia", "Sevilla", "Málaga-Costa del Sol"};
@@ -189,7 +196,18 @@ public class LlegadasActivity extends AppCompatActivity {
             return null;
         }
 
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu2,menu);
+        return true;
+    }
 
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            onBackPressed();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
 
 }

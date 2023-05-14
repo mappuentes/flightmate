@@ -1,9 +1,12 @@
 package com.example.flightmate;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -39,6 +42,10 @@ public class SalidasActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_salidas);
         TableLayout tableLayout = findViewById(R.id.tablaSalidas);
+
+        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        getSupportActionBar().setCustomView(R.layout.txt_layout);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         AutoCompleteTextView autoCompleteTextView = findViewById(R.id.texto_salidas);
         String[] options = {"Madrid-Barajas", "Barcelona-El Prat", "Valencia", "Sevilla", "Málaga-Costa del Sol"};
@@ -170,5 +177,18 @@ public class SalidasActivity extends AppCompatActivity {
             }
         }
         return null;
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu2,menu);
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            onBackPressed();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

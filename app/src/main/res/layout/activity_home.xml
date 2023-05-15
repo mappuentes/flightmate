@@ -63,6 +63,7 @@
         android:layout_height="48dp"
         android:layout_marginTop="292dp"
         android:background="@drawable/boton_redondeado"
+        android:drawableEnd="@drawable/baseline_remove_red_eye_24"
         android:backgroundTint="#404040"
         android:text="Visualiza tus vuelos"
         app:layout_constraintEnd_toEndOf="parent"

@@ -51,15 +51,15 @@ public class AuthActivity extends AppCompatActivity {
                 String edmail = email.getText().toString().trim();
                 String edpassword = password.getText().toString().trim();
                 if(TextUtils.isEmpty(edmail)){
-                    Toast.makeText(AuthActivity.this,"Error: Email is required",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AuthActivity.this,"Error: El correo electrónico es obligatorio",Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if(TextUtils.isEmpty(edpassword)){
-                    Toast.makeText(AuthActivity.this,"Error: Password is required",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AuthActivity.this,"Error: La contraseña es obligatoria",Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if(password.length() < 6){
-                    Toast.makeText(AuthActivity.this,"Error: Password needs to be longer than 6 characters",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AuthActivity.this,"Error: La contraseña debe tener más de 6 caracteres",Toast.LENGTH_SHORT).show();
                     return;
                 }
                 //Authenticate the user.
@@ -67,10 +67,10 @@ public class AuthActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            Toast.makeText(AuthActivity.this, "Welcome to Flightmate!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(AuthActivity.this, "Bienvenido a Flightmate!", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(getApplicationContext(), HomeActivity.class));
                         } else{
-                            Toast.makeText(AuthActivity.this, "Error " +task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(AuthActivity.this, "Error" +task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     }
                 });

@@ -61,21 +61,21 @@ public class RegisterActivity extends AppCompatActivity {
                             phonenumber = Integer.parseInt(te);
                             System.out.println("El número convertido es: " + phonenumber);
                         } catch (NumberFormatException e) {
-                            System.out.println("El String no representa un número válido.");
+                            System.out.println("El Número de teléfono no representa un número válido.");
                         }
 
 
                         if(TextUtils.isEmpty(em)||TextUtils.isEmpty(pa))
                         {
-                            Toast.makeText(RegisterActivity.this,"Error: Password and email are required.",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(RegisterActivity.this,"Error: La contraseña y el correo electrónico son obligatorios.",Toast.LENGTH_SHORT).show();
                         }
                         else if(pa.length() < 6)
                         {
-                            Toast.makeText(RegisterActivity.this,"Error: Password needs to be longer than 6 characters",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(RegisterActivity.this,"Error: La contraseña debe tener más de 6 caracteres",Toast.LENGTH_SHORT).show();
                         }
                         else if(te.length() != 9)
                         {
-                            Toast.makeText(RegisterActivity.this,"Error: Phone number needs to be 9 digits",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(RegisterActivity.this,"Error: El número detelefono tiene que tener 9 dígitos",Toast.LENGTH_SHORT).show();
                             telefono.setBackgroundColor(getResources().getColor(R.color.purple_500));
                         }
                         else
@@ -114,21 +114,21 @@ public class RegisterActivity extends AppCompatActivity {
 
                             // Guardar el objeto User en Firestore
                             userRef.set(newUser).addOnSuccessListener(aVoid -> {
-                                        Toast.makeText(RegisterActivity.this,"El usuario y los campos adicionales se guardaron correctamente en Firestore",Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(RegisterActivity.this,"El usuario y los datos se han guardado con éxito",Toast.LENGTH_SHORT).show();
                                     })
                                     .addOnFailureListener(e -> {
-                                        Toast.makeText(RegisterActivity.this,"Ocurrió un error al guardar los campos adicionales en Firestore",Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(RegisterActivity.this,"Ocurrió un error al guardar los datos",Toast.LENGTH_SHORT).show();
                                     });
 
 
-                            Toast.makeText(RegisterActivity.this,"Successful registration",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(RegisterActivity.this,"Registrado con éxito",Toast.LENGTH_SHORT).show();
 
                             startActivity(new Intent(RegisterActivity.this, HomeActivity.class));
                             finish();
                         }
                         else
                         {
-                            Toast.makeText(RegisterActivity.this,"Sign up failed",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(RegisterActivity.this,"registro fallido",Toast.LENGTH_SHORT).show();
                         }
                     }
                 }
